@@ -10,14 +10,18 @@ int main(){
     int count[40];
     int i = 0;
     int k = 0;
+    int len = 0;
+    
 
     for (int j = 0; j<40; j++){
         count[j] = 0;
     }
 
-    scanf("%[^\n]", sen);
-    for (int j = 0; j<strlen(sen); j++){
-        count[(int)sen[j]%32-1]++; // A : count[0]
+    scanf("%s", sen);
+
+    len = strlen(sen);
+    for (int j = 0; j<len; j++){ // don't use strlen(sen) here it requires lots of time.
+        count[((int)sen[j]%32)-1]++; // A : count[0]
     }
 
     int max = count[0];
@@ -28,10 +32,11 @@ int main(){
             k = j;
         }
     }
+    
     int count2 = 0;
 
     for (int j = 0; j<26; j++){ // checking how many the max's been used
-        if (max == count[j]){
+        if (count[j] == max){
             count2++;
         }
     }
@@ -40,7 +45,8 @@ int main(){
         printf("?");
     }
     else{
-        printf("%c", toupper(sen[k]));
+
+        printf("%c", toupper(k+65));
     }
     
     return 0;
