@@ -69,8 +69,6 @@ int main(){
         }
     }
 
-    
-
     for (int i = 0; i<num; i++){
         printf("%d\n", people[user[0][i]][user[1][i]]);
     }
