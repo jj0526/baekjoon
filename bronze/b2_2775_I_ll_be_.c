@@ -23,7 +23,6 @@
 
 int main(){
     int people[100][20]; // people[k][n]  k: floor  n : room number
-    int user[3][100];
     int num; // how many times the user input numbers
 
     for (int i = 0; i<100; i++){
@@ -32,28 +31,22 @@ int main(){
         }
     }
 
-    scanf("%d", &num);
-
-    for (int i = 0; i<num; i++){
-        scanf("%d", &user[0][i]); // user[0][i] : k (floor)
-        scanf("%d", &user[1][i]); // user[1][i] : n (room number)
+    for (int k = 1; k<15; k++){ // floor
+        for (int n = 1; n<15; n++){ // room number
+            for (int l = 1; l<15; l++){
+                people[k][n] = people[k][n] + people[k-1][l];
+            }
+        }
     }
 
-    int max;
-    int max2;
-
-    max = user[0][0];
-    max2 = user[1][0];
+    scanf("%d", &num);
+    int a;
+    int b;
 
     for (int i = 0; i<num; i++){
-        if (max < user[0][i]){
-            max = user[0][i];
-        }
-        if (max2 < user[1][i]){
-            max2 = user[1][i];
-        }
-    }/* people[max][something] (floor), people[something][max2] (room number) lets say max is (7 2), max2 is (3 4).
-    make it 7*4     */
+        scanf("%d %d", &a, &b);
+    }
+
 
     for (int n = 1; n<=15; n++){
         people[0][n] = n; // initializing how many people live in 0th floor n th room
@@ -61,16 +54,8 @@ int main(){
     int k;
     int n;
 
-    for (k = 1; k<=max; k++){ // floor
-        for (n = 1; n<=max2; n++){ // room number
-            for (int l = 1; l<=n; l++){
-                people[k][n] = people[k][n] + people[k-1][l];
-            }
-        }
-    }
-
     for (int i = 0; i<num; i++){
-        printf("%d\n", people[user[0][i]][user[1][i]]);
+        printf("%d\n", people[a][b]);
     }
 
     return 0;

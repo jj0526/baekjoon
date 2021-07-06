@@ -41,10 +41,9 @@ int main()
     int times;          // how many times they're typing 2*times
     int count;
     int jari[1000][10];
-    int sum[1000][10] = {0};    // the sum of reversed nums
+    int sum[1000][1];   // the sum of reversed nums
     int reversed_sum[1000][10]; // the reversed of the sum
 
-    printf("how many times?");
     scanf("%d", &times);
 
     for (int i = 0; i < times; i++)
@@ -53,7 +52,7 @@ int main()
     }
     for (int j = 0; j < times; j++)
     {
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 9; i++)
         {
             temp[i][0] = num[i][0] / pow(10, i + 1); // getting the num of digit
             count++;
@@ -114,7 +113,7 @@ int main()
     }
     for (int i = 0; i < times; i++) // getting digs of the sum and then reversing it
     {
-        for (int j = 0; j < 8; j++)
+        for (int j = 0; j < 9; j++)
         {
             temp[i][0] = sum[i][0] % 10;
             temp[i][0] = temp[i][0] / 10;
