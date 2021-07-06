@@ -35,10 +35,13 @@ int main(){
 
     scanf("%c%[^\n]", &ch, input);
     
-    
+    long long sub1 = (long long)pow(a%26,b);
+
+    int sub2 = (int)(sub1 % 26); 
+
     for (int i = 0; i<n; i++){
         if (input[i]!=' '){
-            input[i] = input[i] - pow(a,b);
+            input[i] = input[i] - sub2;
             while (('A'>input[i])||(input[i]>'Z')){
                 input[i]+=26;
             }
