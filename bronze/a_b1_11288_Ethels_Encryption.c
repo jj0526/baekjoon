@@ -18,7 +18,6 @@ Note that space are preserved between the encrypted and decrypted messages. This
 
 #include <stdio.h>
 #include <math.h>
-#include <string.h>
 #include <stdlib.h>
 
 int main(){
@@ -37,7 +36,7 @@ int main(){
     
     long long sub1 = (long long)pow(a%26,b);
 
-    int sub2 = (int)(sub1 % 26); 
+    int sub2 = (int)(sub1 % 26);
 
     for (int i = 0; i<n; i++){
         if (input[i]!=' '){
