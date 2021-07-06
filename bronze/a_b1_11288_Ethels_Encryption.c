@@ -23,33 +23,32 @@ Note that space are preserved between the encrypted and decrypted messages. This
 
 int main(){
 
-    int n; // n letters
+    long long n; // n letters
     long long a; // offset : a^b
     long long b;
 
-    scanf("%d %lld %lld", &n, &a, &b);
+    scanf("%lld %lld %lld", &n, &a, &b);
 
-    char input[30];
-    //char *input = (char *)malloc(111*sizeof(char));
+    char *input = (char *)malloc((n+1)*sizeof(char));
 
-    gets(input);
+    char ch;
 
-    /*for (int i = 0; i<n; i++){
-        scanf(" %c", &input[i]);
-    }*/
-    //scanf("%[^\n]", &input);
-
+    scanf("%c%[^\n]", &ch, input);
+    
+    
     for (int i = 0; i<n; i++){
         if (input[i]!=' '){
-            input[i] = input[i] + pow(a,b);
+            input[i] = input[i] - pow(a,b);
             while (('A'>input[i])||(input[i]>'Z')){
-                input[i]-=26;
+                input[i]+=26;
             }
         }
     }
 
     printf("%s", input);
-    
+
     free(input);
-    return 0;    
+
+    return 0;
+
 }
