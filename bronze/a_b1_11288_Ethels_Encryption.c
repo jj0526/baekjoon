@@ -33,8 +33,13 @@ int main(){
     char ch;
 
     scanf("%c%[^\n]", &ch, input);
+
     
-    long long sub1 = (long long)pow(a%26,b);
+    long sub1 = 1;
+    for (long long i = 0 ; i<b; i++){
+        sub1 = (long)(sub1 * (long)(a%26))%26;
+    }
+    //(long long)pow(a%26,b);
 
     int sub2 = (int)(sub1 % 26);
 
