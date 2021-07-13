@@ -33,7 +33,7 @@ int main(){
     char ch;
 
     scanf("%c%[^\n]", &ch, input);
-    
+
     long long sub1 = 1;
     for (long long i = 0; i<b; i++){
         sub1 = (sub1 * (a%26))%26;
