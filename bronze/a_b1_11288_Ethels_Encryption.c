@@ -34,7 +34,10 @@ int main(){
 
     scanf("%c%[^\n]", &ch, input);
     
-    long long sub1 = (long long)pow(a%26,b);
+    long long sub1 = 1;
+    for (long long i = 0; i<b; i++){
+        sub1 = (sub1 * (a%26))%26;
+    }
 
     int sub2 = (int)(sub1 % 26);
 
