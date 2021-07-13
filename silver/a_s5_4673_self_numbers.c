@@ -45,5 +45,38 @@ n을 d(n)의 생성자라고 한다. 위의 수열에서 33은 39의 생성자�
 #include <stdio.h>
 
 int main(){
-    for (int i = 0; )
+    int dig[10000][5];
+    /*for (int i = 0; i<10000; i++){
+        num[i] = 1;
+        for (int j = 0; j<4; j++){
+            dig[i][j] = 0;
+        }
+    }
+    */
+    for (int i = 0; i<10000; i++){
+        for (int j = 0; j<4; j++){
+            dig[i][j] %=10;
+            dig[i][j] /=10;
+        }
+    }
+    for (int i = 0; i<10000; i++){
+        dig[i][4] = i + dig[i][0] + dig[i][1] + dig[i][2] + dig[i][3];
+    }
+
+    int count[100000];
+
+    for (int i = 0; i<10000; i++){
+        count[i] = 0;
+    }
+
+    for (int i = 0; i<10000; i++){
+        count[dig[i][4]] = 1;
+    }
+
+    for (int i = 0; i<10000; i++){
+        if (count[i] == 1){
+            printf("%d\n", i);
+        }
+    }
+
 }
