@@ -53,10 +53,13 @@ int main(){
         }
     }
     */
+   int temp;
     for (int i = 0; i<10000; i++){
+        temp = i;
         for (int j = 0; j<4; j++){
-            dig[i][j] %=10;
-            dig[i][j] /=10;
+            
+            dig[i][j] = temp % 10;
+            temp/=10;
         }
     }
     for (int i = 0; i<10000; i++){
@@ -74,9 +77,11 @@ int main(){
     }
 
     for (int i = 0; i<10000; i++){
-        if (count[i] == 1){
+        if (count[i] == 0){
             printf("%d\n", i);
         }
     }
+
+    return 0;
 
 }
