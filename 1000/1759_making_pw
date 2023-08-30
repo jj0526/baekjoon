@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <string.h>
+
+
+int main(){
+    char letters[16];
+    int L, C;
+    char str[16];
+    scanf("%d %d", &L, &C);
+
+    for (int i = 0; i<C; i++){
+        scanf(" %c", &str[i]);
+    }
+    find_pw(L, C, str, 0, 0);
+}
+
+void sort(){
+
+}
+
+void find_pw(int L, int C, char let[], char given[], int index){
+    //3<=L<=c<=15
+    //4 6
+    //a t c i s w
+    //let : sorted
+    int pw[16];
+    int len = strlen(pw);
+
+    for (int i = 0; i < len; i++){
+        pw[i] = given[i];
+    }
+    int numofvowel = 0;
+    int numofcons = 0;
+
+
+    len = strlen(pw);
+    for (int i = 0; i<len; i++){
+        if(is_vowel(pw[i])=='a' || pw[i]=='e' | pw[i]=='i' | pw[i]=='o' | pw[i]=='u'){
+            numofvowel++;
+        }
+        else
+            numofcons++;
+    }
+
+    
+    if(numofvowel>=2 && numofcons>=1 && len == L){//정답이면
+        printf(pw);
+        return;
+    }
+    else{
+        for(int i = 0; i<C; i++){
+            pw[index] = let[i];
+            find_pw(L, C, let, pw, index+1);
+            
+        }
+    }
+
+
+
+}
